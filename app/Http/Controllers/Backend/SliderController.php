@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Backend\Slider;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests\Backend\StoreSliderRequest;
 use App\Http\Requests\Backend\UpdateSliderRequest;
 
@@ -16,7 +17,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        $sliders = (new Slider)->sliderList();
+        return view('backend.modules.slider.index', compact('sliders'));
     }
 
     /**
@@ -37,7 +39,25 @@ class SliderController extends Controller
      */
     public function store(StoreSliderRequest $request)
     {
-        //
+        $data = $request->all();
+
+        if ($request->file('photo')) {
+            $photo = $request->file('photo');
+            $width = 1920;
+            $height = 760;
+            $thumbWidth = 860;
+            $thumbHeight = 640;
+            $path = 'image/uploads/sliders/orginal/';
+            $thumbPath = 'image/uploads/sliders/thumbnail/';
+            $name = 'sliders-' . rand(111, 999) . '.webp';
+            $data['photo'] = $name;
+            Image::make($photo)->fit($width, $height)->save(public_path($path) . $name, 50);
+            Image::make($photo)->fit($thumbWidth, $thumbHeight)->save(public_path($thumbPath) . $name, 50);
+        }
+        (new Slider())->sliderCreate($data);
+        session()->flash('msg', 'slider add successfully');
+        session()->flash('cls', 'success');
+        return redirect()->route('sliders.index');
     }
 
     /**

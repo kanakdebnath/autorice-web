@@ -7,22 +7,16 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between">
                         @yield('title')
+
+                        <a href="{{ route('sliders.index') }}">
+                            <button class="create-btn"><i class="fa-solid fa-list"></i></button>
+                        </a>
                     </div>
                     <div class="card-body">
-                        {!! Form::open() !!}
-                        {!! Form::label('title', 'Title') !!}
-                        {!! Form::text('title', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Enter title']) !!}
-
-                        {!! Form::label('description', 'Description', ['class' => 'mt-4']) !!}
-                        {!! Form::text('description', null, [
-                            'class' => 'form-control form-control-sm',
-                            'placeholder' => 'Enter description',
-                        ]) !!}
-                        {!! Form::label('sliders', 'Photo', ['class' => 'mt-4']) !!}
-                        {!! Form::file('photo', ['class' => 'form-control form-control-sm']) !!}
-
+                        {!! Form::open(['route' => 'sliders.store', 'method' => 'post', 'files' => true]) !!}
+                        @include('backend.modules.slider.form')
                         {!! Form::button('Add Slidera', ['class' => 'create-btn mt-4', 'type' => 'submit']) !!}
                         {!! Form::close() !!}
                     </div>

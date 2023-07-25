@@ -1,5 +1,7 @@
-:root{
-    --background-color : midnightblue;
+:root {
+    --background-color: midnightblue;
+    --blue-violet: blueviolet;
+    --fff: #fff;
 }
 
 .sb-sidenav-dark {
@@ -14,6 +16,48 @@
     background-color: var(--background-color) !important;
     border-top: 1px solid #ddd;
 }
-.create-btn{
+.create-btn {
     background-color: blueviolet;
+}
+
+.create-btn {
+    background-color: var(--blue-violet);
+    padding: 5px 15px;
+    border: 1px solid var(--blue-violet);
+    border-radius: 5px;
+    color: var(--fff);
+    font-weight: 700;
+    box-shadow: 2px -1px 3px 0px #00000070;
+}
+
+.edit-btn{
+    background-color: mediumblue;
+    padding: 5px 15px;
+    border: 1px solid var(--blue-violet);
+    border-radius: 5px;
+    color: var(--fff);
+    font-weight: 700;
+    box-shadow: 2px -1px 3px 0px #00000070;
+}
+
+.delete-btn {
+    background-color: darkmagenta;
+    padding: 5px 15px;
+    border: 1px solid var(--blue-violet);
+    border-radius: 5px;
+    color: var(--fff);
+    font-weight: 700;
+    box-shadow: 2px -1px 3px 0px #00000070;
+}
+
+.show-photo {
+    width: 320px;
+    height: 169px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.show_photo {
+    width: 100%;
+    height: 100%;
 }
