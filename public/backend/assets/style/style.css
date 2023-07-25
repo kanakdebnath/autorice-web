@@ -1,0 +1,19 @@
+:root{
+    --background-color : midnightblue;
+}
+
+.sb-sidenav-dark {
+    background-color: var(--background-color) !important;
+}
+
+.bg-dark {
+    background-color: var(--background-color) !important;
+}
+
+.sb-sidenav-dark .sb-sidenav-footer {
+    background-color: var(--background-color) !important;
+    border-top: 1px solid #ddd;
+}
+.create-btn{
+    background-color: blueviolet;
+}
