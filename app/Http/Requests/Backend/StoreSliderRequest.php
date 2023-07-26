@@ -24,7 +24,23 @@ class StoreSliderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|max:255',
+            'description' => 'required|string',
+            'photo' => 'required|max:255|string',
+        ];
+    }
+
+
+    /**
+     * Summary of messages
+     * @return array<string>
+     */
+    public function messages()
+    {
+        return [
+            'title.required' => 'slider title is required.',
+            'description.required' => 'slider description is required.',
+            'photo.required' => 'slider photo is required.',
         ];
     }
 }

@@ -1,6 +1,6 @@
 @extends('backend.layout.dashMaster')
 
-@section('title', 'Slider Create')
+@section('title', 'Add Service')
 
 @section('content')
     <div class="container">
@@ -8,16 +8,17 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        @yield('title')
-
-                        <a href="{{ route('sliders.index') }}">
+                        <strong>
+                            @yield('title')
+                        </strong>
+                        <a href="{{ route('services.index') }}">
                             <button class="create-btn"><i class="fa-solid fa-list"></i></button>
                         </a>
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => 'sliders.store', 'method' => 'post', 'files' => true]) !!}
-                        @include('backend.modules.slider.form')
-                        {!! Form::button('Add Slider', ['class' => 'create-btn mt-4', 'type' => 'submit']) !!}
+                        {!! Form::open(['route' => 'services.store', 'method' => 'post']) !!}
+                        @include('backend.modules.service.form')
+                        {!! Form::button('Add Service', ['class' => 'create-btn mt-4', 'type' => 'submit']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>

@@ -8,18 +8,16 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <h6 class="mb-0">
-                            @yield('title')
-                        </h6>
+                        @yield('title')
 
                         <a href="{{ route('sliders.index') }}">
-                            <button><i class="fa-solid fa-list"></i></button>
+                            <button class="list-btn edit-btn">Lists <i class="fa-solid fa-list"></i></button>
                         </a>
                     </div>
                     <div class="card-body">
-                        {!! Form::model($slider, ['route' => ['sliders.update', $slider], 'method' => 'post', 'files' => true]) !!}
+                        {!! Form::model($slider, ['route' => ['sliders.update', $slider], 'method' => 'put', 'files' => true]) !!}
                         @include('backend.modules.slider.form')
-                        {!! Form::button('Update Slidera', ['class' => 'update-btn mt-4', 'type' => 'submit']) !!}
+                        {!! Form::button('Update Slider', ['class' => 'update-btn mt-4', 'type' => 'submit']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>

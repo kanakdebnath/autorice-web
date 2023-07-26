@@ -1,6 +1,6 @@
 @extends('backend.layout.dashMaster')
 
-@section('title', 'Slider Lists')
+@section('title', 'Services Lists')
 
 @section('content')
     <div class="container">
@@ -8,9 +8,11 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
+                        <strong>
+                            @yield('title')
+                        </strong>
 
-                        @yield('title')
-                        <a href="{{ route('sliders.create') }}">
+                        <a href="{{ route('services.create') }}">
                             <button class="create-btn"><i class="fa-solid fa-plus"></i></button>
                         </a>
                     </div>
@@ -21,20 +23,16 @@
                                     <th>SL</th>
                                     <th>Title</th>
                                     <th>Description</th>
-                                    <th>Photo</th>
                                     <th>Time</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($sliders as $item)
+                                @foreach ($service as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td>{!! substr($item->description, 0, 50) !!}...</td>
-                                        <td><img style="width: 100px; height: 50px"
-                                                src="{{ asset('image/uploads/sliders/thumbnail/' . $item->photo) }}"
-                                                alt=""></td>
                                         <td>
                                             <p class="mb-0 text-success">
                                                 {{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y h:i a') }}
@@ -45,13 +43,16 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <div class="d-inline-flex ">
+                                                <a href="{{ route('services.show', $item->id) }}">
+                                                    <button class="show-btn me-2"><i class="fa-solid fa-eye"></i></button>
+                                                </a>
                                                 <a class="text-decoration-none"
-                                                    href="{{ route('sliders.edit', $item->id) }}">
+                                                    href="{{ route('services.edit', $item->id) }}">
                                                     <button class="edit-btn me-2"><i
                                                             class="fa-solid fa-pen-to-square"></i></button>
                                                 </a>
                                                 {!! Form::open([
-                                                    'route' => ['sliders.destroy', $item->id],
+                                                    'route' => ['services.destroy', $item->id],
                                                     'method' => 'delete',
                                                     'id' => 'delete_form_' . $item->id,
                                                 ]) !!}

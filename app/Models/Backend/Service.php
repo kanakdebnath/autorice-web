@@ -5,49 +5,49 @@ namespace App\Models\Backend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class Service extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
     /**
-     * Summary of sliderList
+     * Summary of serviceList
      * @return mixed
      */
-    public function sliderList()
+    public function serviceList()
     {
         return Self::orderBy('id', 'desc')->get();
     }
 
     /**
-     * Summary of sliderCreate
+     * Summary of serviceStore
      * @param mixed $data
      * @return mixed
      */
-    public function sliderCreate($data)
+    public function serviceStore($data)
     {
         return Self::create($data);
     }
 
     /**
-     * Summary of sliderupdate
+     * Summary of serviceUpdate
      * @param mixed $data
-     * @param mixed $slider
+     * @param mixed $service
      * @return mixed
      */
-    public function sliderupdate($data, $slider)
+    public function serviceUpdate($data, $service)
     {
-        return $slider->update($data);
+        return $service->update($data);
     }
 
 
     /**
-     * Summary of deleteSlider
+     * Summary of serviceDelete
      * @param mixed $slider
      * @return mixed
      */
-    public function deleteSlider($slider)
+    public function serviceDelete($slider)
     {
         return $slider->delete();
     }

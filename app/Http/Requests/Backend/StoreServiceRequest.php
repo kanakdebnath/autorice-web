@@ -4,7 +4,7 @@ namespace App\Http\Requests\Backend;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSliderRequest extends FormRequest
+class StoreServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,18 @@ class UpdateSliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'description' => 'required|string',
+            'title' => 'required|min:3|max:255|string',
+            'description' => 'required|min:3|string',
+            'status' => 'required'
         ];
     }
-
 
     public function messages()
     {
         return [
-            'title.required' => 'slider title is required.',
-            'description.required' => 'slider description is required.',
+            'title.required' => 'service title is required.',
+            'description.required' => 'service description is required.',
+            'status.required' => 'service status is required.',
         ];
     }
 }

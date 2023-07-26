@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
@@ -34,6 +35,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 
     // slider Route section
     Route::resource('sliders', SliderController::class);
+
+    // service route section
+    Route::resource('services', ServiceController::class);
 });
 
 require __DIR__ . '/auth.php';
