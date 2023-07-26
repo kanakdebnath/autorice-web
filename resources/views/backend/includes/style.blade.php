@@ -6,3 +6,4 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="sweetalert2.min.css">
 <link href="{{ asset('backend/assets/style/style.css') }}" rel="stylesheet" />
+@stack('admin_style')

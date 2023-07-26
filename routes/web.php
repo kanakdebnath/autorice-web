@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\CommunicationController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\WithUsController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -52,6 +53,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 
     // Notice Route Section
     Route::resource('notices', NoticeController::class);
+
+    // Setting Section 
+    Route::get('settings/general', [SettingsController::class, 'general_settings'])->name('settings.general');
+    Route::post('settings', [SettingsController::class, 'store'])->name('settings');
+    
 });
 
 require __DIR__ . '/auth.php';

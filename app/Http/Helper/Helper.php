@@ -4,6 +4,8 @@ namespace App\Http\Helper;
 
 use Intervention\Image\Facades\Image;
 
+use Illuminate\Support\Facades\DB;
+
 
 class Helper
 {
@@ -32,4 +34,15 @@ class Helper
             unlink($old_photo);
         }
     }
+
+        public static function get_option($name) {
+            $setting = DB::table('settings')->where('name', $name)->get();
+            if (!$setting->isEmpty()) {
+                return $setting[0]->value;
+            }
+            return "";
+    
+        }
+    
+
 }
