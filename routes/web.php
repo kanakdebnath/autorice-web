@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Backend\CommunicationController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\WithUsController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +40,17 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 
     // service route section
     Route::resource('services', ServiceController::class);
+
+    // Communication Route Section
+    Route::resource('communications', CommunicationController::class);
+
+    // With us Route Section
+    Route::get('with-us', [WithUsController::class, 'create'])->name('withus.create');
+    Route::put('with-us/{id}', [WithUsController::class, 'store'])->name('withUs.store');
+
+
+    // Notice Route Section
+    
 });
 
 require __DIR__ . '/auth.php';

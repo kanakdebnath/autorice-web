@@ -30,7 +30,8 @@
             <div class="row section-header">
                 <div class="col">
                     <h1 class="section-title text-center"><b>About Us</b></h1>
-                    <img src="public/assets/images/rarm-about-icon.png" class="img-responsive" alt="Rice Exporter">
+                    <img src="{{ asset('frontend/assets/images/rarm-about-icon.png') }}" class="img-responsive"
+                        alt="Rice Exporter">
                 </div>
             </div>
 
@@ -45,7 +46,8 @@
                             District-Dinajpur. We are engaged in milling, processing &amp; supply of finest
                             qualities of Puffed rice and parboiled rice.</p>
 
-                        <img src="public/assets/images/basmati.jpg" class="img-responsive ml-2 mt-2 w-50 float-right"
+                        <img src="{{ asset('frontend/assets/images/basmati.jpg') }}"
+                            class="img-responsive ml-2 mt-2 w-50 float-right"
                             alt="Basmati Rice Manufacturers in RaipurAutoRiceMills">
 
                         <p class="mt-3">
@@ -169,7 +171,8 @@
                                 <div id="example-1" class="thumbs">
                                     <div class="gmallery" id="gmallery">
                                         <a href="javascript:void();">
-                                            <img src="public/assets/images/no-image-found.jpg" class="img-responsive"
+                                            <img src="{{ asset('frontend/assets/images/no-image-found.jpg') }}"
+                                                class="img-responsive"
                                                 alt="RaipurAutoRiceMills Chamber of Commerce Membership">
                                         </a>
                                     </div>
@@ -181,7 +184,8 @@
                                 <div id="example-1" class="thumbs">
                                     <div class="gmallery" id="gmallery">
                                         <a href="javascript:void();">
-                                            <img src="public/assets/images/no-image-found.jpg" class="img-responsive"
+                                            <img src="{{ asset('frontend/assets/images/no-image-found.jpg') }}"
+                                                class="img-responsive"
                                                 alt="RaipurAutoRiceMills Chamber of Commerce Membership">
 
                                         </a>
@@ -194,7 +198,8 @@
                                 <div id="example-1" class="thumbs">
                                     <div class="gmallery" id="gmallery">
                                         <a href="javascript:void();">
-                                            <img src="public/assets/images/no-image-found.jpg" class="img-responsive"
+                                            <img src="{{ asset('frontend/assets/images/no-image-found.jpg') }}"
+                                                class="img-responsive"
                                                 alt="RaipurAutoRiceMills Chamber of Commerce Membership">
 
                                         </a>
@@ -207,7 +212,8 @@
                                 <div id="example-1" class="thumbs">
                                     <div class="gmallery" id="gmallery">
                                         <a href="javascript:void();">
-                                            <img src="public/assets/images/no-image-found.jpg" class="img-responsive"
+                                            <img src="{{ asset('frontend/assets/images/no-image-found.jpg') }}"
+                                                class="img-responsive"
                                                 alt="RaipurAutoRiceMills Chamber of Commerce Membership">
 
                                         </a>
@@ -220,7 +226,8 @@
                                 <div id="example-1" class="thumbs">
                                     <div class="gmallery" id="gmallery">
                                         <a href="javascript:void();">
-                                            <img src="public/assets/images/no-image-found.jpg" class="img-responsive"
+                                            <img src="{{ asset('frontend/assets/images/no-image-found.jpg') }}"
+                                                class="img-responsive"
                                                 alt="RaipurAutoRiceMills Chamber of Commerce Membership">
 
                                         </a>
