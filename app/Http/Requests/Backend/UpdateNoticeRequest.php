@@ -24,7 +24,20 @@ class UpdateNoticeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string',
+            'description' => 'required|string',
+        ];
+    }
+
+    /**
+     * Summary of messages
+     * @return array<string>
+     */
+    public function messages()
+    {
+        return [
+            'title.required' => 'Notice Title is required.',
+            'description.required' => 'Notice description is required.',
         ];
     }
 }

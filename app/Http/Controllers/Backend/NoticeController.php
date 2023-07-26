@@ -17,8 +17,8 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        $notice = (new Notice)->sliderList();
-        return view('backend.modules.slider.index', compact('notice'));
+        $notice = (new Notice)->noticeList();
+        return view('backend.modules.notice.index', compact('notice'));
     }
 
     /**
@@ -40,7 +40,7 @@ class NoticeController extends Controller
     public function store(StoreNoticeRequest $request)
     {
         $data = $request->all();
-        $data['name'] = str_replace(' ', '-', $request->input('title'));
+        $photoName = str_replace(' ', '-', $request->input('title'));
         if ($request->file('photo')) {
             $photo = $request->file('photo');
             $width = 800;
@@ -49,15 +49,15 @@ class NoticeController extends Controller
             $thumbHeight = 600;
             $path = 'image/uploads/notice/orginal/';
             $thumbPath = 'image/uploads/notice/thumbnail/';
-            $name = $data['name'] . '-' . rand(111, 999) . '.webp';
+            $name = $photoName . '-' . rand(111, 999) . '.webp';
             $data['photo'] = $name;
             Helper::imageUpload($photo, $width, $height, $path, $name);
             Helper::imageUpload($photo, $thumbWidth, $thumbHeight, $thumbPath, $name);
         }
         (new Notice())->noticeCreate($data);
-        session()->flash('msg', 'slider added successfully');
+        session()->flash('msg', 'notice added successfully');
         session()->flash('cls', 'success');
-        return redirect()->route('sliders.index');
+        return redirect()->route('notices.index');
     }
 
     /**
@@ -68,7 +68,7 @@ class NoticeController extends Controller
      */
     public function show(Notice $notice)
     {
-        //
+        return view('backend.modules.notice.show', compact('notice'));
     }
 
     /**
@@ -91,7 +91,6 @@ class NoticeController extends Controller
      */
     public function update(UpdateNoticeRequest $request, Notice $notice)
     {
-
         $data = $request->all();
 
         if ($request->file('photo')) {
@@ -111,10 +110,10 @@ class NoticeController extends Controller
             Helper::imageUpload($photo, $width, $height, $path, $name);
             Helper::imageUpload($photo, $thumbWidth, $thumbHeight, $thumbPath, $name);
         }
-        (new Notice())->noticeCreate($data);
-        session()->flash('msg', 'slider added successfully');
+        (new Notice())->noticeUpdate($data, $notice);
+        session()->flash('msg', 'notice update successfully');
         session()->flash('cls', 'success');
-        return redirect()->route('sliders.index');
+        return redirect()->route('notices.index');
     }
 
     /**
@@ -131,5 +130,10 @@ class NoticeController extends Controller
             Helper::unlinkImage($path, $notice->photo);
             Helper::unlinkImage($thumbPath, $notice->photo);
         }
+
+        (new Notice())->noticeDelete($notice);
+        session()->flash('msg', 'notice deleted successfully');
+        session()->flash('cls', 'warning');
+        return redirect()->back();
     }
 }

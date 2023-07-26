@@ -6,8 +6,9 @@
     </p>
 @enderror
 {!! Form::label('description', 'Description', ['class' => 'mt-4']) !!}
-{!! Form::text('description', null, [
+{!! Form::textarea('description', null, [
     'class' => 'form-control form-control-sm',
+    'id' => 'editor',
     'placeholder' => 'Enter description',
 ]) !!}
 
@@ -18,7 +19,7 @@
 @enderror
 
 
-{!! Form::label('sliders', 'Photo', ['class' => 'mt-4']) !!}
+{!! Form::label('photo', 'Photo', ['class' => 'mt-4']) !!}
 {!! Form::file('photo', ['class' => 'up-photo form-control form-control-sm']) !!}
 @error('photo')
     <p class="position-absolute text-danger error-photo">
@@ -31,10 +32,10 @@
             <img class="show_photo" alt="">
         </div>
     </div>
-    @if (Route::currentRouteName() == 'sliders.edit')
+    @if (Route::currentRouteName() == 'notices.edit')
         <div class="col-lg-6">
             <div class="updated-img">
-                <img src="{{ asset('image/uploads/sliders/thumbnail/' . $slider->photo) }}" alt="">
+                <img src="{{ asset('image/uploads/notice/thumbnail/' . $notice->photo) }}" alt="">
             </div>
         </div>
     @endif
@@ -51,5 +52,10 @@
             $('.show-photo').show()
             $('.error-photo').empty()
         })
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 @endpush

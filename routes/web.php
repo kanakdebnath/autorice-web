@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\CommunicationController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\WithUsController;
@@ -50,7 +51,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 
 
     // Notice Route Section
-    
+    Route::resource('notices', NoticeController::class);
 });
 
 require __DIR__ . '/auth.php';

@@ -1,6 +1,6 @@
 @extends('backend.layout.dashMaster')
 
-@section('title', 'Slider Create')
+@section('title', 'Add Notice')
 
 @section('content')
     <div class="container">
@@ -10,14 +10,14 @@
                     <div class="card-header d-flex justify-content-between">
                         @yield('title')
 
-                        <a href="{{ route('sliders.index') }}">
+                        <a href="{{ route('notices.index') }}">
                             <button class="create-btn"><i class="fa-solid fa-list"></i></button>
                         </a>
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => 'sliders.store', 'method' => 'post', 'files' => true]) !!}
-                        @include('backend.modules.slider.form')
-                        {!! Form::button('Add Slider', ['class' => 'create-btn mt-4', 'type' => 'submit']) !!}
+                        {!! Form::open(['route' => 'notices.store', 'method' => 'post', 'files' => true]) !!}
+                        @include('backend.modules.notice.form')
+                        {!! Form::button('Add Notice', ['class' => 'create-btn mt-4', 'type' => 'submit']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>

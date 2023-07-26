@@ -1,6 +1,6 @@
 @extends('backend.layout.dashMaster')
 
-@section('title', 'Slider Lists')
+@section('title', 'Notice Lists')
 
 @section('content')
     <div class="container">
@@ -10,7 +10,7 @@
                     <div class="card-header d-flex justify-content-between">
 
                         @yield('title')
-                        <a href="{{ route('sliders.create') }}">
+                        <a href="{{ route('notices.create') }}">
                             <button class="create-btn"><i class="fa-solid fa-plus"></i></button>
                         </a>
                     </div>
@@ -20,20 +20,19 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Title</th>
-                                    <th>Description</th>
                                     <th>Photo</th>
                                     <th>Time</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($sliders as $item)
+                                @foreach ($notice as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td>{!! substr($item->description, 0, 50) !!}...</td>
+                                        {{-- <td>{!! substr($item->description, 0, 50) !!}...</td> --}}
                                         <td><img style="width: 100px; height: 50px"
-                                                src="{{ asset('image/uploads/sliders/thumbnail/' . $item->photo) }}"
+                                                src="{{ asset('image/uploads/notice/thumbnail/' . $item->photo) }}"
                                                 alt=""></td>
                                         <td>
                                             <p class="mb-0 text-success">
@@ -45,13 +44,17 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <div class="d-inline-flex ">
+
+                                                <a href="{{ route('notices.show', $item->id) }}">
+                                                    <button class="show-btn me-2"><i class="fa-solid fa-eye"></i></button>
+                                                </a>
                                                 <a class="text-decoration-none"
-                                                    href="{{ route('sliders.edit', $item->id) }}">
+                                                    href="{{ route('notices.edit', $item->id) }}">
                                                     <button class="edit-btn me-2"><i
                                                             class="fa-solid fa-pen-to-square"></i></button>
                                                 </a>
                                                 {!! Form::open([
-                                                    'route' => ['sliders.destroy', $item->id],
+                                                    'route' => ['notices.destroy', $item->id],
                                                     'method' => 'delete',
                                                     'id' => 'delete_form_' . $item->id,
                                                 ]) !!}
