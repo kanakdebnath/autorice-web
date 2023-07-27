@@ -57,8 +57,7 @@
                                                     'id' => 'delete_form_' . $item->id,
                                                 ]) !!}
                                                 {!! Form::button('<i class="fa-solid fa-trash"></i>', [
-                                                    'class' => 'delete-btn',
-                                                    'id' => 'delete_btn',
+                                                    'class' => 'delete-btn delete_btn',
                                                     'data-id' => $item->id,
                                                 ]) !!}
                                                 {!! Form::close() !!}
@@ -92,7 +91,7 @@
 
 @push('script')
     <script>
-        $('#delete_btn').on('click', function() {
+        $('.delete_btn').on('click', function() {
             let id = $(this).attr('data-id');
             Swal.fire({
                 title: 'Are you sure?',

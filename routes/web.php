@@ -1,15 +1,19 @@
 <?php
 
-use App\Http\Controllers\Backend\CommunicationController;
-use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\AboutUsController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\NoticeController;
-use App\Http\Controllers\Backend\ServiceController;
-use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\WithUsController;
+use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\SettingsController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\ContactUsController;
+use App\Http\Controllers\Backend\CommunicationController;
+use App\Http\Controllers\Backend\GalleryController;
+use App\Models\Backend\Gallery;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +35,14 @@ Route::get('process', [FrontendController::class, 'process'])->name('about.proce
 Route::get('infrastructure', [FrontendController::class, 'infrastructure'])->name('about.infrastructure');
 Route::get('company-profile', [FrontendController::class, 'companyProfile'])->name('company.profile');
 
+
+
+Route::post('contact-us', [ContactUsController::class, 'store'])->name('contact.store');
+
+
+
+
+
 Route::get('log-out', [DashboardController::class, 'logOut'])->name('log_out');
 
 
@@ -46,18 +58,25 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
     // Communication Route Section
     Route::resource('communications', CommunicationController::class);
 
-    // With us Route Section
-    Route::get('with-us', [WithUsController::class, 'create'])->name('withus.create');
-    Route::put('with-us/{id}', [WithUsController::class, 'store'])->name('withUs.store');
-
-
     // Notice Route Section
     Route::resource('notices', NoticeController::class);
 
-    // Setting Section 
+    // About Us Route
+    Route::get('about/us', [AboutUsController::class, 'create'])->name('about.create');
+    Route::post('about', [AboutUsController::class, 'store'])->name('about.store');
+
+    // Gellary section
+    // Route::resource('galleries', GalleryController::class);
+    Route::get('gallery-photos', [GalleryController::class, 'index'])->name('gallery-photos.index');
+    Route::get('gallery-photos/create', [GalleryController::class, 'create'])->name('gallery-photos.create');
+    Route::post('gallery-photos', [GalleryController::class, 'store'])->name('gallery-photos.store');
+    Route::get('gallery-photos/{id}/edit', [GalleryController::class, 'edit'])->name('gallery-photos.edit');
+    Route::put('gallery-photos/{id}', [GalleryController::class, 'update'])->name('gallery-photos.update');
+    Route::delete('gallery-photos/{id}', [GalleryController::class, 'destroy'])->name('gallery-photos.destroy');
+
+    // Setting Section
     Route::get('settings/general', [SettingsController::class, 'general_settings'])->name('settings.general');
     Route::post('settings', [SettingsController::class, 'store'])->name('settings');
-    
 });
 
 require __DIR__ . '/auth.php';

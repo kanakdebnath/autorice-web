@@ -1,4 +1,4 @@
-<a class="navbar-brand" href="index.html">
+<a class="navbar-brand" href="{{ route('front.index') }}">
 
     <img style="width: 100%;" src="{{ asset('frontend/assets/images/Raipur-Auto-Rice-Mills.svg') }}"
         alt="Raipur Auto Rice Mills" />

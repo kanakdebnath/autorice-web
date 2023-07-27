@@ -6,8 +6,9 @@
     </p>
 @enderror
 {!! Form::label('description', 'Description', ['class' => 'mt-4']) !!}
-{!! Form::text('description', null, [
+{!! Form::textarea('description', null, [
     'class' => 'form-control form-control-sm',
+    'id' => 'editor',
     'placeholder' => 'Enter description',
 ]) !!}
 
@@ -28,3 +29,13 @@
         <small><i class="fa-solid fa-triangle-exclamation"></i> {{ $message }}</small>
     </p>
 @enderror
+
+@push('script')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

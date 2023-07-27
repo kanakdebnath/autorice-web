@@ -26,7 +26,7 @@ class StoreSliderRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'description' => 'required|string',
-            'photo' => 'required|max:255|string',
+            'photo' => 'required',
         ];
     }
 

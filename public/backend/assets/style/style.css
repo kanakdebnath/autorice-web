@@ -108,3 +108,20 @@
 .form-select:focus, .datatable-selector:focus {
     box-shadow: none !important;
 }
+
+.gellary-photo-item {
+    border: 1px solid #ddd;
+    height: 225px;
+    object-fit: cover;
+}
+
+.gellary-photo-item img{
+    height: 100%;
+}
+
+.old-img {
+    border: 1px solid #ddd;
+    height: 225px;
+    width:100%;
+    object-fit: cover;
+}

@@ -53,67 +53,62 @@
                 <div class="container forms">
 
 
+                    <form action="{{ route('contact.store') }}" method="post">
+                        @csrf
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7 contact-us">
+                                @if (Session::has('msg'))
+                                    <div class="alert alert-success" role="alert">
+                                        <strong>{{ session('msg') }}</strong>
+                                    </div>
+                                @endif
+                                <h2 class="text-center ">Contact Us</h2>
+                                <label for="">Name</label>
+                                <input type="text" name="name" class="form-control form-control-sm"
+                                    placeholder="Enter your name.">
+                                @error('name')
+                                    <p class="position-absolute text-danger">
+                                        <small>
+                                            <i class="fa-solid fa-triangle-exclamation"></i> {{ $message }}
+                                        </small>
+                                    </p>
+                                @enderror
+                                <label for="" class="mt-4">Email</label>
+                                <input type="email" name="email" class="form-control form-control-sm"
+                                    placeholder="Enter your email.">
+                                @error('email')
+                                    <p class="position-absolute text-danger">
+                                        <small>
+                                            <i class="fa-solid fa-triangle-exclamation"></i> {{ $message }}
+                                        </small>
+                                    </p>
+                                @enderror
+                                <label for="" class="mt-4">Phone</label>
+                                <input type="number" name="phone" class="form-control form-control-sm"
+                                    placeholder="Enter your phone.">
+                                @error('phone')
+                                    <p class="position-absolute text-danger">
+                                        <small>
+                                            <i class="fa-solid fa-triangle-exclamation"></i> {{ $message }}
+                                        </small>
+                                    </p>
+                                @enderror
+                                <label for="" class="mt-4">Message</label>
+                                <textarea name="message" id="" cols="30" rows="10" class="form-control form-control-sm"></textarea>
+                                @error('message')
+                                    <p class="position-absolute text-danger">
+                                        <small>
+                                            <i class="fa-solid fa-triangle-exclamation"></i> {{ $message }}
+                                        </small>
+                                    </p>
+                                @enderror
+                                <button class="contact-btn" type="submit">Send Message</button>
+                            </div>
+                        </div>
 
-
-                    <form id="contactForm" action="https://www.raipurautoricemills.com/contact-form" method="post"
-                        style="padding: 35px; margin-bottom: 50px; overflow: hidden;">
-                        <input type="hidden" name="_token" value="MDh9qoVk0DFXFfrAk17dXecnnHZkBVzQQzG2b5VP">
-                        <table class="tab">
-
-                            <tbody class="tb">
-                                <tr class="ttr">
-                                    <th class="tth"><label for="contactName">Name <span class="required">*</span></label>
-                                    </th>
-                                    <td class="ttd">
-                                        <input type="text" name="name" id="contactName"
-                                            class="required requiredField">
-                                    </td>
-                                </tr>
-
-                                <tr class="ttr">
-                                    <th class="tth"><label for="email">Email <span class="required">*</span></label>
-                                    </th>
-                                    <td class="ttd">
-                                        <input type="email" name="email" id="email"
-                                            class="required requiredField email">
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th><label for="phone">Phone <span class="required">*</span></label></th>
-                                    <td style="padding: 0px !important; border: 0px solid #e9ecef !important;">
-                                        <input type="text" name="phone" id="phone"
-                                            class="required requiredField phone">
-                                    </td>
-                                </tr>
-
-                                <tr class="ttr">
-                                    <th class="tth"><label for="commentsText">Message <span
-                                                class="required">*</span></label></th>
-                                    <td class="ttd">
-                                        <textarea name="comments" id="commentsText" rows="20" cols="30" class="required requiredField"
-                                            style="height: 120px;"></textarea>
-                                    </td>
-                                </tr>
-
-                                <tr class="ttr">
-                                    <th class="tth"></th>
-                                    <td class="ttd">
-                                        <input class="submit" type="submit" value="Send Message">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <input type="hidden" name="submitted" id="submitted" value="true" style="margin-bottom: 50px;">
                     </form>
 
-                </div> <!-- /.container -->
-
-
-
-
-
-            </div> <!-- /.sFeatLayout -->
+                </div> <!-- /.sFeatLayout -->
 
         </section>
 

@@ -50,21 +50,6 @@
                 </nav>
             </div>
 
-
-            {{-- with us nav --}}
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#with-us"
-                aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                With Us
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="with-us" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="{{ route('withus.create') }}">update with us</a>
-                </nav>
-            </div>
-
-
             {{-- Notice nav --}}
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#notice"
                 aria-expanded="false" aria-controls="collapseLayouts">
@@ -78,18 +63,48 @@
                     <a class="nav-link" href="{{ route('notices.index') }}">Notice Lists</a>
                 </nav>
             </div>
-             {{-- with us nav --}}
-             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#Setting"
-             aria-expanded="false" aria-controls="collapseLayouts">
-             <div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
-             Settings
-             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+
+            {{-- Gallery nav --}}
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#gallery"
+                aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
+                Gallery
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="gallery" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ route('gallery-photos.create') }}">Add Gallery</a>
+                    <a class="nav-link" href="{{ route('gallery-photos.index') }}">Add Gallery</a>
+                </nav>
+            </div>
+
+            {{-- About us nav --}}
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#about"
+                aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
+                About
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="about" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ route('about.create') }}"> About Us</a>
+                </nav>
+            </div>
+
+
+            {{-- Settings nav --}}
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#Setting"
+                aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
+                Settings
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="Setting" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="{{ route('settings.general') }}">update with us</a>
+                    <a class="nav-link" href="{{ route('settings.general') }}">General Settings</a>
                 </nav>
             </div>
+
 
 
         </div>

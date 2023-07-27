@@ -86,11 +86,11 @@
                 style="background: #8f949a; background-position: center; height: 1px; margin-bottom:12px">
             </div>
 
-            <div class="fb-page" style="width: 100%;" data-href="https://www.facebook.com/RaipurAutoRiceMills/"
-                title="Facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+            <div class="fb-page" style="width: 100%;" data-href="{{ get_option('facebook_page') }}" title="Facebook"
+                data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
                 data-show-facepile="true">
-                <blockquote cite="https://www.facebook.com/RaipurAutoRiceMills/" class="fb-xfbml-parse-ignore"><a
-                        href="https://www.facebook.com/RaipurAutoRiceMills/">Raipur Auto Rice Mills -
+                <blockquote cite="{{ get_option('facebook_page') }}" class="fb-xfbml-parse-ignore"><a
+                        href="{{ get_option('facebook_page') }}">Raipur Auto Rice Mills -
                         Rafusoft</a></blockquote>
             </div>
 
@@ -106,11 +106,11 @@
             <div>
                 <span class="gd">
                     <p style="color:#fff;">
-                        Address : Kauga Road, Shimultola, Dinajpur 5200, Rangpur, Bangladesh
-                        <br>Whatsapp : +8801712552009
-                        <br>Email : in<a href="cdn-cgi/l/email-protection.html" class="__cf_email__"
+                        Address : {{ get_option('address') }}
+                        <br>Whatsapp : {{ get_option('whatsapp') }}
+                        <br>Email : in<a href="{{ get_option('email') }}" class="__cf_email__"
                             data-cfemail="6c0a032c1e0d051c191e0d1918031e050f09010500001f420f0301">[email&#160;protected]</a>
-                        <br>Facebook : fb.com/raipurautoricemills
+                        <br>Facebook : {{ get_option('facebook_page') }}
                     </p>
                 </span>
             </div>
