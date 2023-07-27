@@ -121,7 +121,7 @@
 </div>
 <div class="footer-copyright text-center py-3" style="background-color: #0a1c32;">
     Copyright &copy;
-    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
     {{ date('Y') }}
     Raipur Auto Rice Mills - Dinajpur, Bangladesh. All Rights Reserved.
 </div>

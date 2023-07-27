@@ -1,5 +1,5 @@
 <script src="{{ asset('frontend/assets/js/jquery-3.3.1.min.js') }}"></script>
-<script src="../cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.1/jquery-migrate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.1/jquery-migrate.min.js"></script>
 
 <script src="{{ asset('frontend/bootstrap/assets/bootjs/popper.min.js') }}"></script>
 <script src="{{ asset('frontend/bootstrap/assets/bootjs/bootstrap.min.js') }}"></script>

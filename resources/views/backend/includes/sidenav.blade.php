@@ -21,6 +21,7 @@
                 </nav>
             </div>
 
+
             {{-- Service nav --}}
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#service"
                 aria-expanded="false" aria-controls="collapseLayouts">
@@ -32,6 +33,22 @@
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="{{ route('services.create') }}">Add Service</a>
                     <a class="nav-link" href="{{ route('services.index') }}">Services List</a>
+                </nav>
+            </div>
+
+
+
+            {{-- Product nav --}}
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#product"
+                aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Products
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="product" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ route('products.create') }}">Add product</a>
+                    <a class="nav-link" href="{{ route('products.index') }}">Products List</a>
                 </nav>
             </div>
 
@@ -77,6 +94,8 @@
                     <a class="nav-link" href="{{ route('gallery-photos.index') }}">Add Gallery</a>
                 </nav>
             </div>
+
+
 
             {{-- About us nav --}}
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#about"

@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Backend\CommunicationController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\ProductController;
 use App\Models\Backend\Gallery;
 
 /*
@@ -73,6 +74,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
     Route::get('gallery-photos/{id}/edit', [GalleryController::class, 'edit'])->name('gallery-photos.edit');
     Route::put('gallery-photos/{id}', [GalleryController::class, 'update'])->name('gallery-photos.update');
     Route::delete('gallery-photos/{id}', [GalleryController::class, 'destroy'])->name('gallery-photos.destroy');
+
+    //Product Section
+    Route::resource('products', ProductController::class);
 
     // Setting Section
     Route::get('settings/general', [SettingsController::class, 'general_settings'])->name('settings.general');
