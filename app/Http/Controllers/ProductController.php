@@ -53,6 +53,8 @@ class ProductController extends Controller
             } else {
                 $offer_price = $price - $discount;
             }
+        } else {
+            $offer_price = 0;
         }
 
         $data['offer_price'] = $offer_price;
@@ -113,15 +115,27 @@ class ProductController extends Controller
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->input('slug'));
+        $offer_price = '';
 
+        if ($data['discount_type']) {
+            $price = $request->input('price');
+            $discount = $request->input('discount_amount');
+            if ($data['discount_type'] == 1) {
+                $offer_price = $price - ($price / 100) * $discount;
+            } else {
+                $offer_price = $price - $discount;
+            }
+        } else {
+            $offer_price = 0;
+        }
         if ($request->file('photo')) {
             $photo = $request->file('photo');
             $width = 1000;
             $height = 1000;
             $thumbWidth = 700;
             $thumbHeight = 600;
-            $path = 'image/uploads/product/orginal/';
-            $thumbPath = 'image/uploads/product/thumbnail/';
+            $path = 'image/uploads/products/orginal/';
+            $thumbPath = 'image/uploads/products/thumbnail/';
 
             $name =  Str::slug($request->input('slug')) . '-' . rand(11111, 99999) . '.webp';
             $data['photo'] = $name;
@@ -135,7 +149,7 @@ class ProductController extends Controller
             Helper::imageUpload($photo, $thumbWidth, $thumbHeight, $thumbPath, $name);
         }
 
-        (new Product())->productUpdate($data);
+        (new Product())->productUpdate($data, $product);
         session()->flash('msg', 'Ptoduct updated successfully');
         session()->flash('cls', 'success');
         return redirect()->route('products.index');
@@ -149,14 +163,16 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $path = 'image/uploads/product/orginal/';
-        $thumbPath = 'image/uploads/product/thumbnail/';
+        $path = 'image/uploads/products/orginal/';
+        $thumbPath = 'image/uploads/products/thumbnail/';
 
         if ($product->photo != null) {
             Helper::unlinkImage($path, $product->photo);
             Helper::unlinkImage($thumbPath, $product->photo);
         }
-        (new Product())->productDelete();
+        (new Product())->productDelete($product);
+        session()->flash('msg', 'Ptoduct deleted successfully');
+        session()->flash('cls', 'warning');
         return redirect()->back();
     }
 }

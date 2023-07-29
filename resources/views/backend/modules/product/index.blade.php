@@ -1,6 +1,6 @@
 @extends('backend.layout.dashMaster')
 
-@section('title', 'Communication Member Lists')
+@section('title', 'Products Lists')
 
 @section('content')
     <div class="container">
@@ -10,7 +10,7 @@
                     <div class="card-header d-flex justify-content-between">
 
                         @yield('title')
-                        <a href="{{ route('communications.create') }}">
+                        <a href="{{ route('products.create') }}">
                             <button class="create-btn"><i class="fa-solid fa-plus"></i></button>
                         </a>
                     </div>
@@ -20,8 +20,9 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Name</th>
-                                    <th>Details</th>
+                                    <th>Price</th>
                                     <th>Status</th>
+                                    <th>Weight</th>
                                     <th>Photo</th>
                                     <th>Time</th>
                                     <th>Action</th>
@@ -32,8 +33,13 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{!! substr($item->details, 0, 50) !!}...</td>
-                                        <td>{!! $item->status == 1 ? 'Active' : 'Inactive' !!}</td>
+                                        <td>{!! number_format($item->price, 2) !!}TK</td>
+                                        @if ($item->status == 1)
+                                            <td><span class="badge text-bg-success">Active</span></td>
+                                        @else
+                                            <td><span class="badge text-bg-danger">Inactive</span></td>
+                                        @endif
+                                        <td>{{ $item->weigth }}KG</td>
                                         <td><img style="width: 100px; height: 50px"
                                                 src="{{ asset('image/uploads/products/thumbnail/' . $item->photo) }}"
                                                 alt=""></td>
@@ -47,10 +53,16 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <div class="d-inline-flex ">
+                                                <a href="{{ route('products.show', $item->id) }}">
+                                                    <button class="show-btn me-2">
+                                                        <i class="fa-solid fa-eye"></i>
+                                                    </button>
+                                                </a>
                                                 <a class="text-decoration-none"
                                                     href="{{ route('products.edit', $item->id) }}">
-                                                    <button class="edit-btn me-2"><i
-                                                            class="fa-solid fa-pen-to-square"></i></button>
+                                                    <button class="edit-btn me-2">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
                                                 </a>
                                                 {!! Form::open([
                                                     'route' => ['products.destroy', $item->id],
@@ -66,7 +78,6 @@
                                         </td>
                                     </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>

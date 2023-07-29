@@ -1,6 +1,6 @@
 @extends('backend.layout.dashMaster')
 
-@section('title', 'Slider Create')
+@section('title', 'Add Slider')
 
 @section('content')
     <div class="container">

@@ -15,9 +15,8 @@
 @enderror
 
 {!! Form::label('details', 'Description', ['class' => 'mt-4']) !!}
-{!! Form::text('details', null, [
+{!! Form::textarea('details', null, [
     'class' => 'form-control form-control-sm',
-    'placeholder' => 'Enter descridetailsption',
     'id' => 'description',
 ]) !!}
 

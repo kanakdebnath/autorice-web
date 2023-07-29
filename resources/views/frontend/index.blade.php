@@ -69,7 +69,7 @@
 
     <div class="clear"></div>
 
-
+    {{-- Products --}}
     <div class="container sim">
         <div>
             <section>
@@ -83,52 +83,21 @@
                             </h5>
                         </div>
                         <div class="slider autoplay ">
-                            <div class="s-b text-center">
-                                <img src="{{ asset('frontend/assets/images/r1.jpg') }}" alt="r1.jpg">
-                                <h3 style="margin-top: 20px; margin-bottom: 10px;"><b>Katari Bhog Rice</b></h3>
-                                <a href="tel:+8801733138179" class="btn btn-primary"
-                                    style="padding: 5px; background: #0c294ce8">
-                                    <img src="{{ asset('frontend/assets/images/cart.png') }}" alt="cart.png">
-                                    <span class="btn-text"> Cart</span>
-                                </a>
-                            </div>
+                            @foreach ($products as $product)
+                                <div class="s-b text-center">
+                                    <img src="{{ asset('image/uploads/products/thumbnail/' . $product->photo) }}"
+                                        alt="r1.jpg">
+                                    <h3 style="margin-top: 20px; margin-bottom: 10px;"><b>{{ $product->name }}</b></h3>
+                                    <a href="tel:+8801733138179" class="btn btn-primary"
+                                        style="padding: 5px; background: #0c294ce8">
+                                        <img src="{{ asset('frontend/assets/images/cart.png') }}" alt="cart.png">
+                                        <span class="btn-text"> Cart</span>
+                                    </a>
+                                </div>
+                            @endforeach
 
-                            <div class="s-b text-center">
-                                <img src="{{ asset('frontend/assets/images/r5.jpg') }}" alt="r5.jpg">
-                                <h3 style="margin-top: 20px; margin-bottom: 10px;"><b>Miniket Rice</b></h3>
-                                <a href="tel:+8801733138179" class="btn btn-primary"
-                                    style="padding: 5px; background: #0c294ce8">
-                                    <img src="{{ asset('frontend/assets/images/cart.png') }}" alt="cart.png">
-                                    <span class="btn-text"> Cart</span>
-                                </a>
-                            </div>
-                            <div class="s-b text-center">
-                                <img src="{{ asset('frontend/assets/images/r2.jpg') }}" alt="r2.jpg">
-                                <h3 style="margin-top: 20px; margin-bottom: 10px;"><b>Chinigura Rice</b></h3>
-                                <a href="tel:+8801733138179" class="btn btn-primary"
-                                    style="padding: 5px; background: #0c294ce8">
-                                    <img src="{{ asset('frontend/assets/images/cart.png') }}" alt="cart.png">
-                                    <span class="btn-text"> Cart</span>
-                                </a>
-                            </div>
-                            <div class="s-b text-center">
-                                <img src="{{ asset('frontend/assets/images/r4.jpg') }}" alt="r4.jpg">
-                                <h3 style="margin-top: 20px; margin-bottom: 10px;"><b>Kalijira Rice</b></h3>
-                                <a href="tel:+8801733138179" class="btn btn-primary"
-                                    style="padding: 5px; background: #0c294ce8">
-                                    <img src="{{ asset('frontend/assets/images/cart.png') }}" alt="cart.png">
-                                    <span class="btn-text"> Cart</span>
-                                </a>
-                            </div>
-                            <div class="s-b text-center">
-                                <img src="{{ asset('frontend/assets/images/r2.jpg') }}" alt="r2.jpg">
-                                <h3 style="margin-top: 20px; margin-bottom: 10px;"><b>Custom Mix Rice</b></h3>
-                                <a href="tel:+8801733138179" class="btn btn-primary"
-                                    style="padding: 5px; background: #0c294ce8">
-                                    <img src="{{ asset('frontend/assets/images/cart.png') }}" alt="cart.png">
-                                    <span class="btn-text"> Cart</span>
-                                </a>
-                            </div>
+
+
                         </div>
 
                     </div>
@@ -154,7 +123,7 @@
                         <div class="collapse-one" style=" height: 544px; overflow: auto; ">
                             <div id="accordion">
 
-                                @foreach ($services as $service)
+                                @foreach ($services as $key => $service)
                                     <div class="card">
                                         <div class="card-header">
                                             <a class="card-link" data-toggle="collapse"
@@ -164,8 +133,8 @@
                                                 {{ $service->title }}
                                             </a>
                                         </div>
-                                        <div id="collapseOne_{{ $service->id }}" class="collapse "
-                                            data-parent="#accordion">
+                                        <div id="collapseOne_{{ $service->id }}"
+                                            class="collapse {{ $key == 0 ? 'show' : '' }}" data-parent="#accordion">
                                             <div class="card-body">
                                                 <p>{!! $service->description !!}
                                                 </p>

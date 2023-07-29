@@ -13,7 +13,7 @@
                         </strong>
 
                         <a href="{{ route('services.index') }}">
-                            <button class="create-btn"><i class="fa-solid fa-plus"></i></button>
+                            <button class="create-btn"><i class="fa-solid fa-list"></i></button>
                         </a>
                     </div>
                     <div class="card-body">
@@ -25,7 +25,7 @@
                                 </tr>
                                 <tr>
                                     <th>Description</th>
-                                    <td>{{ $service->description }}</td>
+                                    <td>{!! $service->description !!}</td>
                                 </tr>
 
                                 <tr>
@@ -44,7 +44,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <a href="{{ route('services.index') }}">
+                        <a  href="{{ route('services.index') }}">
                             <button class="edit-btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
                         </a>
                     </div>

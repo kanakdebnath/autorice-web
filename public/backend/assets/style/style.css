@@ -2,9 +2,9 @@
     --background-color: midnightblue;
     --blue-violet: blueviolet;
     --fff: #fff;
-    --green : green;
-    --show-btn :#806400;
-    --box-shadow : #00000070;
+    --green: green;
+    --show-btn: #806400;
+    --box-shadow: #00000070;
 }
 
 .sb-sidenav-dark {
@@ -19,6 +19,7 @@
     background-color: var(--background-color) !important;
     border-top: 1px solid #ddd;
 }
+
 .create-btn {
     background-color: blueviolet;
 }
@@ -33,7 +34,7 @@
     box-shadow: 2px -1px 3px 0px var(--box-shadow);
 }
 
-.edit-btn{
+.edit-btn {
     background-color: mediumblue;
     padding: 5px 15px;
     border: 1px solid var(--blue-violet);
@@ -52,7 +53,8 @@
     font-weight: 700;
     box-shadow: 2px -1px 3px 0px var(--box-shadow);
 }
-.show-btn{
+
+.show-btn {
     background: var(--show-btn);
     padding: 5px 15px;
     border: 1px solid var(--blue-violet);
@@ -62,6 +64,7 @@
     box-shadow: 2px -1px 3px 0px var(--box-shadow);
     transition: 0.4s;
 }
+
 .update-btn {
     background: var(--green);
     padding: 5px 15px;
@@ -101,11 +104,13 @@
     height: 100%;
 }
 
-.form-control:focus, .datatable-input:focus {
+.form-control:focus,
+.datatable-input:focus {
     box-shadow: none !important;
 }
 
-.form-select:focus, .datatable-selector:focus {
+.form-select:focus,
+.datatable-selector:focus {
     box-shadow: none !important;
 }
 
@@ -115,13 +120,27 @@
     object-fit: cover;
 }
 
-.gellary-photo-item img{
+.gellary-photo-item img {
     height: 100%;
 }
 
 .old-img {
     border: 1px solid #ddd;
     height: 225px;
-    width:100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.show_img {
+    height: 200px;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+.update-img {
+    height: 200px;
     object-fit: cover;
 }

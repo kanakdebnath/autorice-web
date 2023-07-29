@@ -2,11 +2,14 @@
 @section('title', 'Add Gallery')
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between">
                         @yield('title')
+                        <a href="{{ route('gallery-photos.index') }}">
+                            <button class="create-btn"><i class="fa-solid fa-list"></i></button>
+                        </a>
                     </div>
                     <div class="card-body">
                         {!! Form::open(['route' => 'gallery-photos.store', 'method' => 'post', 'files' => true]) !!}

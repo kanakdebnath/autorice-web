@@ -34,7 +34,6 @@ Route::get('contact-us', [FrontendController::class, 'contactUs'])->name('contac
 Route::get('about-us', [FrontendController::class, 'aboutUs'])->name('about.us');
 Route::get('process', [FrontendController::class, 'process'])->name('about.process');
 Route::get('infrastructure', [FrontendController::class, 'infrastructure'])->name('about.infrastructure');
-Route::get('company-profile', [FrontendController::class, 'companyProfile'])->name('company.profile');
 
 
 
