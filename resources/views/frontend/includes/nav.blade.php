@@ -27,9 +27,8 @@
         <li class="btn-group mil">
             <button type="button" role="button" class="btn btn-primary"
                 style="padding: 10px 0px 14px;background-color: #0c294c;">
-                <a class="dropdown-btn
-
-                " href="{{ route('about.us') }}" target="_top"
+                <a class="dropdown-btn {{ Route::currentRouteName() == 'about.us' || Route::currentRouteName() == 'about.process' || Route::currentRouteName() == 'about.infrastructure' ? 'text-white' : '' }}"
+                    href="{{ route('about.us') }}" target="_top"
                     style="color: #9DC6F9;text-transform: uppercase;">About Us</a>
             </button>
             <button type="button" role="button" class="button btn btn-primary dropdown-toggle dropdown-toggle-split"
