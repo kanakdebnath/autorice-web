@@ -39,39 +39,6 @@
             </div>
         </li>
 
-        <li class="btn-group mil">
-            <button type="button" role="button" class="btn btn-primary"
-                style="padding: 10px 0px 14px;background-color: #0c294c;">
-                <a class="dropdown-btn" href="javascript:void(0);" target="_top"
-                    style="color: #9DC6F9; text-transform: uppercase;"> Companies </a>
-            </button>
-            <button type="button" role="button" class="button btn btn-primary dropdown-toggle dropdown-toggle-split"
-                data-toggle="dropdown" style="background-color: #0c294c; float: none; aria-expanded:true;">
-            </button>
-            <div class="dropdown-menu" style="background: rgba(13, 33, 58, 0.77); text-align:left; margin-top: 0; ">
-                <a class="dropdown-item" target="_blank" href="https://www.rafusoft.com/">Rafusoft</a>
-                <a class="dropdown-item" target="_blank" href="https://www.trustnews24.com/">Trustnews24</a>
-                <a class="dropdown-item" target="_blank" href="https://kenakatadinajpur.com/">Kenakata
-                    Dinajpur (KD)</a>
-                <a class="dropdown-item" target="_blank" href="https://bit.ly/2u1QnJJ">Rafusoft
-                    Golden
-                    Fish</a>
-                <a class="dropdown-item" target="_blank" href="https://bricks.rafu.win/">Raipur Block
-                    &
-                    Bricks</a>
-                <a class="dropdown-item" target="_blank" href="index.html">Raipur
-                    Murir Mill</a>
-                <a class="dropdown-item" target="_blank" href="index.html">Gram
-                    Bangla Murir Mill</a>
-                <a class="dropdown-item" target="_blank" href="https://rafutraders.com/">Rafu
-                    Traders</a>
-                <a class="dropdown-item" target="_blank" href="https://raipur-travels.com/">Raipur
-                    Travels</a>
-                <a class="dropdown-item" target="_blank" href="https://realtrading.xyz/">Real
-                    Trading</a>
-            </div>
-        </li>
-
         <li class="nav-item">
             <a class="nav-link {{ Route::currentRouteName() == 'contact.us' ? 'text-white' : ' ' }}"
                 href="{{ route('contact.us') }}" style="color: #9DC6F9">Contact Us</a>
